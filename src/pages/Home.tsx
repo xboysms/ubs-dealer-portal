@@ -1,5 +1,6 @@
 import {Container} from '@material-ui/core'
 import React from 'react';
+import Dashboard from '../component/Dashboard'
 
 const Home: React.FC = () => {
 // const [isBusy,setIsBusy]=useState(false);
@@ -14,7 +15,7 @@ const Home: React.FC = () => {
 // }
 return (
     <Container>
-     Home page
+     <Dashboard></Dashboard>
     </Container>
     );
 };
