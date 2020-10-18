@@ -7,6 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
+import { useDispatch } from 'react-redux';
+import {generate} from '../features/token/tokenSlice'
 
 // Generate Order Data
 function createData(id: number, date: string, name: string, shipTo: string, paymentMethod: string, amount: number) {
@@ -28,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Orders() {
-    
+  const dispatch=useDispatch();
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -56,7 +58,7 @@ export default function Orders() {
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="#">
+        <Link color="primary" href="#" onClick={()=>{dispatch(generate())}}>
           See more orders
         </Link>
       </div>

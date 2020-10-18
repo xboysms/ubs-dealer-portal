@@ -9,6 +9,7 @@ TODO: Guide users through getting your code up and running on their own system. 
 4. Install typescript: npm install typescript
 5. install Redux Toolkit: npm install @reduxjs/toolkit
 6. install Redux Code: npm install redux
+7. install react-redux: npm install react-redux
 7. install recharts: npm i recharts
 
 # Build and Test
