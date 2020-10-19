@@ -1,10 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
-import testReducer from '../features/test/testSlice'
-import tokenReducer from '../features/token/tokenSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from '../features/counter/counterSlice';
 
 export default configureStore({
   reducer: {
-    test: testReducer,
-    token:tokenReducer
-  }
-})
+    counter: counterReducer,
+  },
+});

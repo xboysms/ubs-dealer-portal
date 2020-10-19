@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Copyright from './Copyright';
+import {useState} from 'react'
+import { useHistory } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,10 +36,22 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
+const defaultUser={username:'admin',password:'password'};
 const SignIn: React.FC = () =>{
     const classes = useStyles();
-
+    const history= useHistory();
+  const [username,setUserName]= useState('');
+  const [password,setPassword]= useState('');
+  function doLogin(){
+    if(username===defaultUser.username && password===defaultUser.password)
+    {
+      console.log('okay');
+      history.push("/");
+    }
+    else{
+      console.log('failed');
+    }
+  }
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -48,17 +62,18 @@ const SignIn: React.FC = () =>{
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={doLogin}>
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="username"
+              label="User Name"
+              name="username"
+              autoComplete="username"
               autoFocus
+              onChange={(e)=>setUserName(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -70,6 +85,7 @@ const SignIn: React.FC = () =>{
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e)=>setPassword(e.target.value)}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

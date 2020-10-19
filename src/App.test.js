@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './App';
+import Copyright from './component/Copyright';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
+test('test copy right', () => {
+  const { getByText } = render(<Copyright />);
+  const linkElement = getByText(/Ultimate Business Systems/i);
   expect(linkElement).toBeInTheDocument();
 });

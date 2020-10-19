@@ -10,7 +10,9 @@ TODO: Guide users through getting your code up and running on their own system. 
 5. install Redux Toolkit: npm install @reduxjs/toolkit
 6. install Redux Code: npm install redux
 7. install react-redux: npm install react-redux
-7. install recharts: npm i recharts
+8. install recharts: npm i recharts
+9. install faker: npm i faker
+10. install router dom: npm install react-router-dom 
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
