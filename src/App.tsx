@@ -5,13 +5,13 @@ import './App.css';
 import Home from './pages/Home'
 import Login from './pages/Login'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
-
+import PrivateRoute from './routes/PrivateRoute'
 
 
 const App: React.FC = () => {
   return (
       <Router>
-        <Route path="/" component={Home} exact/>
+        <PrivateRoute path="/" component={Home} exact/>
         <Route path="/login" component={Login} exact/>
         {/* <Redirect from="*" to="/" /> */}
       </Router>

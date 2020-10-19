@@ -18,7 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import Copyright from './Copyright';
-import { mainListItems, secondaryListItems } from './ListItems';
+import { mainListItems,SecondaryListItems } from './ListItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
@@ -155,7 +155,7 @@ export default function Dashboard() {
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        <SecondaryListItems></SecondaryListItems>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
