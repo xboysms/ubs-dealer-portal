@@ -13,9 +13,12 @@ TODO: Guide users through getting your code up and running on their own system. 
 8. install recharts: npm i recharts
 9. install faker: npm i faker
 10. install router dom: npm install react-router-dom 
+11. install redux-saga: npm install redux-saga 
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+npm start
+npm test
+npm run build
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 

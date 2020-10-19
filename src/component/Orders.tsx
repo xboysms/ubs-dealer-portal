@@ -9,6 +9,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import { useDispatch } from 'react-redux';
 import {generate} from '../features/token/tokenSlice'
+import { connect } from 'react-redux';
+import { INCREMENT, DECREMENT, INCREMENT_ASYNC } from '../app/reducer';
+
 
 // Generate Order Data
 function createData(id: number, date: string, name: string, shipTo: string, paymentMethod: string, amount: number) {
@@ -29,7 +32,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Orders() {
+const Orders=({
+  count,
+  onIncrementAsync,
+  onIncrement,
+  onDecrement,
+}: any) => {
   const dispatch=useDispatch();
   const classes = useStyles();
   return (
@@ -59,9 +67,36 @@ export default function Orders() {
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={()=>{dispatch(generate())}}>
-          See more orders
+          See more orders {count}
         </Link>
+      </div>
+      <div className={classes.seeMore}>
+        <Link color="primary" href="#" onClick={onIncrement}>
+          +
+        </Link>
+        
+      </div>
+      <div className={classes.seeMore}>
+      <Link color="primary" href="#" onClick={onDecrement}>
+          -
+        </Link>
+        
+      </div>
+      <div className={classes.seeMore}>
+      <Link color="primary" href="#" onClick={onIncrementAsync}>
+          async
+        </Link>
+        
       </div>
     </React.Fragment>
   );
 }
+
+const action = (type: any) => () => ({ type });
+const OrdersSaga = connect((state) => ({ count: state }), {
+  onIncrement: action(INCREMENT),
+  onDecrement: action(DECREMENT),
+  onIncrementAsync: action(INCREMENT_ASYNC),
+})(Orders);
+
+export default OrdersSaga;

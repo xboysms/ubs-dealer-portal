@@ -5,7 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'fontsource-roboto';
 import {Provider} from 'react-redux';
-import store from './app/store';
+//import store from './app/store';
+import {store} from './app/storeSaga';
 
 ReactDOM.render(
   // <React.StrictMode>
