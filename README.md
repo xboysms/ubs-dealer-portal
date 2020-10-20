@@ -2,7 +2,7 @@
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+All commands used so far:
 1.	Create React app: npx create-react-app my-app
 2. Install Material UI: npm install @material-ui/core
 3. Install Material Icon: npm install @material-ui/icons
@@ -14,12 +14,13 @@ TODO: Guide users through getting your code up and running on their own system. 
 9. install faker: npm i faker
 10. install router dom: npm install react-router-dom 
 11. install redux-saga: npm install redux-saga 
+12. install axios for API call:npm install axios
 
 # Build and Test
 npm start
 npm test
 npm run build
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Next Topic or questions
+1. multiple reducer or state: the use case should be to work with multiple objects. In this case, how to set that up?
 
