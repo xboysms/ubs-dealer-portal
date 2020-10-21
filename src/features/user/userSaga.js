@@ -1,6 +1,6 @@
 import { call, put,takeEvery } from 'redux-saga/effects'
 
-export function* fetchData(action) {
+function* fetchData(action) {
    try {
       const data = yield call(Api.fetchUser, action.payload.url)
       yield put({type: "FETCH_SUCCEEDED", data})
@@ -9,6 +9,6 @@ export function* fetchData(action) {
    }
 }
 
-function* watchFetchData() {
+export function* watchFetchData() {
   yield takeEvery('FETCH_REQUESTED', fetchData)
 }

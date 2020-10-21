@@ -1,5 +1,6 @@
 {
   "name": "ubs-dealer-portal",
+  "proxy": "http://ws.dev.ultimate.net.au:8011",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

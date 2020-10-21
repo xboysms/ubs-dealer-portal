@@ -24,3 +24,13 @@ npm run build
 # Next Topic or questions
 1. multiple reducer or state: the use case should be to work with multiple objects. In this case, how to set that up?
 
+
+# Saga effect
+1. Fork:  performs a non-blocking operation on the function passed.
+1. Take:  pauses until action received.
+1. Race:  runs effects simultaneously, then cancels them all once one finishes.
+1. Call:  runs a function. If it returns a promise, pauses the saga until the promise is resolved.
+1. Put:  dispatches an action.
+1. Select:  Runs a selector function to get data from the state
+1. takeLatest:  means we are going to execute the operations, then return only the results of the last one call. If we trigger several cases, it’s going to ignore all of them except the last one.
+1. takeEvery:  will return results for all the calls triggered.

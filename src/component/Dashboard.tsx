@@ -19,8 +19,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import Copyright from './Copyright';
 import { mainListItems,SecondaryListItems } from './ListItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
+//import Chart from './Chart';
+//import Deposits from './Deposits';
 import Orders from './Orders';
 import VersionList from './VersionList'
 
@@ -163,26 +163,26 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+            {/* <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 <Chart />
               </Paper>
-            </Grid>
+            </Grid> */}
             {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
+            {/* <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <Deposits />
               </Paper>
-            </Grid>
+            </Grid> */}
             {/* Recent Orders */}
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <Orders />
               </Paper>
-            </Grid>
+            </Grid> */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                {/* <VersionList /> */}
+                <VersionList />
               </Paper>
             </Grid>
           </Grid>
