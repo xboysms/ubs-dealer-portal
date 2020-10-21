@@ -10,10 +10,12 @@ export const versionSlice = createSlice({
   reducers: {
     start: state => {
       state.loading=true;
+      state.error=false;
     },
     finish: (state,action) => {
       state.loading =false;
       state.data=action.payload;
+      state.error=false;
     },
     loadFailed: state => {
         state.error=true;
