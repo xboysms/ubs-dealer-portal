@@ -5,7 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
+import DirectionsCar from '@material-ui/icons/DirectionsCar';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import Eject from '@material-ui/icons/Eject';
@@ -16,40 +16,49 @@ import { useHistory } from 'react-router-dom';
 
 //import {logout} from '../features/user/usersSlice'
 
-export const mainListItems=(
-<div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem>
-  </div>
-)
+export const MainListItems:React.FC= ()=> {
+  function goDashBoard(){
+    history.push('/')
+  }
+  function goStocks(){
+    history.push('/stocks')
+  }
+  const history= useHistory();
+  return (
+    <List>
+        <ListItem button onClick={()=> {goDashBoard()}}>
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <ShoppingCartIcon />
+          </ListItemIcon>
+          <ListItemText primary="Orders" />
+        </ListItem>
+        <ListItem button onClick={()=> {goStocks()}}>
+          <ListItemIcon>
+            <DirectionsCar />
+          </ListItemIcon>
+          <ListItemText primary="Stocks" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <BarChartIcon />
+          </ListItemIcon>
+          <ListItemText primary="Reports" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <LayersIcon />
+          </ListItemIcon>
+          <ListItemText primary="Integrations" />
+        </ListItem>
+      </List>
+    );
+};
 
 export const SecondaryListItems: React.FC = ()=> {
   function doLogout(){
