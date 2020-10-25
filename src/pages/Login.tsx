@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,9 +15,16 @@ import Container from '@material-ui/core/Container';
 import Copyright from '../component/Copyright';
 import {useState} from 'react'
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import {login} from '../features/user/usersSlice'
-import faker from 'faker'
+import { useDispatch,useSelector } from 'react-redux';
+import { connect } from 'react-redux';
+import loginRequest from '../features/user/actions'
+import {userData} from '../app/rootReducer'
+import { RootState } from '../app/rootReducer';
+import {  
+    LOGIN_REQUESTING
+  } from '../features/user/constants'
+import { GET_AVAILABLE_VERSION_LIST } from '../features/version/actions';
+//import faker from 'faker'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -38,23 +45,24 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-const defaultUser={username:'admin',password:'password'};
 const Login: React.FC = () =>{
+    const record= useSelector(userData);
+    const {requesting,
+        successful,
+        messages,
+        errors}= record;
+        console.log("userdata",record);
     const classes = useStyles();
     const history= useHistory();
     const dispatch=useDispatch();
   const [username,setUserName]= useState('');
   const [password,setPassword]= useState('');
+  useEffect(()=>{
+    dispatch({type:GET_AVAILABLE_VERSION_LIST});
+  },[]);
   function doLogin(){
-    if(username===defaultUser.username && password===defaultUser.password)
-    {
-        const token=faker.random.word();
-      dispatch(login({username:username, token:token}));
-      history.push("/");
-    }
-    else{
-      console.log('failed');
-    }
+    dispatch(loginRequest({username,password}));
+      //history.push("/");
   }
     return (
       <Container component="main" maxWidth="xs">
@@ -66,7 +74,7 @@ const Login: React.FC = () =>{
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate onSubmit={doLogin}>
+          {/* <form className={classes.form} noValidate> */}
             <TextField
               variant="outlined"
               margin="normal"
@@ -101,6 +109,7 @@ const Login: React.FC = () =>{
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={doLogin}
             >
               Sign In
             </Button>
@@ -116,13 +125,35 @@ const Login: React.FC = () =>{
                 </Link>
               </Grid>
             </Grid>
-          </form>
+          {/* </form> */}
         </div>
+
+        {/* <div>
+          {!requesting && !!errors.length && (
+            <div>custom error</div>
+          )}
+          {!requesting && !!messages.length && (
+            <div>custom message</div>
+          )}
+          {requesting && <div>Logging in...</div>}
+          {!requesting && !successful && (
+            <div>something wrong</div>
+          )}
+        </div> */}
+
         <Box mt={8}>
           <Copyright />
         </Box>
       </Container>
     );
 }
+//export default Login;
+const abc = connect((state:RootState) => ({ userData: state.user }), {
+})(Login);
+// const mapStateToProps = state:RootState => ({  
+//     userData: state.user,
+//   })
 
-export default Login;
+// const connected = connect(mapStateToProps, { loginRequest })(Login)
+
+export default abc;

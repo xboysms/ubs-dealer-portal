@@ -25,6 +25,4 @@ export const versionSlice = createSlice({
 })
 
 export const { start, finish,loadFailed} = versionSlice.actions
-export const availableVersions = (state: { data: any; }) => state.data;
-
 export default versionSlice.reducer

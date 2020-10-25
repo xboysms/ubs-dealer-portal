@@ -9,8 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
-import {GET_AVAILABLE_VERSION_LIST} from '../actions/actionsConst'
-
+import {GET_AVAILABLE_VERSION_LIST} from '../features/version/actions'
+import {RootState} from '../app/rootReducer'
 
 const useStyles = makeStyles((theme) => ({
   seeMore: {
@@ -63,7 +63,7 @@ const VersionView=({
   );
 }
 
-const VersionList = connect((state) => ({ versions: state }), {
+const VersionList = connect((state:RootState) => ({ versions: state.version }), {
 })(VersionView);
 
 export default VersionList;

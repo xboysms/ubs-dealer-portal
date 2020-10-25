@@ -10,7 +10,7 @@ import Title from './Title';
 import { useDispatch } from 'react-redux';
 import {generate} from '../features/token/tokenSlice'
 import { connect } from 'react-redux';
-import { INCREMENT, DECREMENT, INCREMENT_ASYNC ,DECREMENT_ASYNC} from '../app/reducer';
+//import { INCREMENT, DECREMENT, INCREMENT_ASYNC ,DECREMENT_ASYNC} from '../app/reducer';
 
 
 // Generate Order Data
@@ -101,10 +101,10 @@ const Orders=({
 
 const action = (type: any) => () => ({ type });
 const OrdersSaga = connect((state) => ({ count: state }), {
-  onIncrement: action(INCREMENT),
-  onDecrement: action(DECREMENT),
-  onIncrementAsync: action(INCREMENT_ASYNC),
-  onDecrementAsync: action(DECREMENT_ASYNC),
+  // onIncrement: action(INCREMENT),
+  // onDecrement: action(DECREMENT),
+  // onIncrementAsync: action(INCREMENT_ASYNC),
+  // onDecrementAsync: action(DECREMENT_ASYNC),
 })(Orders);
 
 export default OrdersSaga;

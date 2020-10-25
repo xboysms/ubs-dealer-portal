@@ -18,8 +18,8 @@
 
 import { createStore, applyMiddleware,compose } from 'redux';  
 import createSagaMiddleware from 'redux-saga';
-import {watchGetItems} from '../sagas/versionSaga'
-import versionReducer from '../reducers/versionSlice'
+import rootSagas from './rootSagas'
+import rootReducer from './rootReducer'
 
 const sagaMiddleware = createSagaMiddleware();
 // dev tools middleware
@@ -29,10 +29,10 @@ const reduxDevTools =
 /* eslint-enable */
 
 export const store = createStore(
-    versionReducer, 
+    rootReducer, 
     compose(applyMiddleware(sagaMiddleware),reduxDevTools)
 );
 
+sagaMiddleware.run(rootSagas);
 
-
-sagaMiddleware.run(watchGetItems);
+//store.dispatch();//get first app settings

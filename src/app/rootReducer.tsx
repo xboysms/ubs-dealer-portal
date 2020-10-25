@@ -5,17 +5,18 @@
 import { combineReducers } from 'redux';
 import counter from '../features/counter/counterSlice';
 import token  from '../features/token/tokenSlice';
-import versionReducer from './versionSlice'
+import user from '../features/user/usersSlice';
+import version from '../features/version/versionSlice';
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
  */
-export default function createReducer(injectedReducers = {}) {
-  const rootReducer = combineReducers({
+const rootReducer = combineReducers({
     couter: counter,
     token: token,
-    version: versionReducer,
-    ...injectedReducers,
+    user: user,
+    version:version
   });
+  export const userData = (state:RootState) => state.user;
+  export type RootState = ReturnType<typeof rootReducer>
+export default rootReducer;
 
-  return rootReducer;
-}

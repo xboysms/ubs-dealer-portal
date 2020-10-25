@@ -11,7 +11,7 @@ import LayersIcon from '@material-ui/icons/Layers';
 import Eject from '@material-ui/icons/Eject';
 import List from '@material-ui/core/List';
 import { useDispatch } from 'react-redux';
-import {logout} from '../features/user/usersSlice'
+//import {logout} from '../features/user/usersSlice'
 
 export const mainListItems=(
 <div>
@@ -56,7 +56,8 @@ export const SecondaryListItems: React.FC = ()=> {
     <React.Fragment>
     <List id='hatest'>
       <ListSubheader inset>System</ListSubheader>
-      <ListItem button onClick={()=>{dispatch(logout())}}>
+      {/* <ListItem button onClick={()=>{dispatch(logout())}}> */}
+      <ListItem button >
         <ListItemIcon>
           <Eject />
         </ListItemIcon>
