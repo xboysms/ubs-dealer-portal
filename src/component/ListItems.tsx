@@ -11,6 +11,9 @@ import LayersIcon from '@material-ui/icons/Layers';
 import Eject from '@material-ui/icons/Eject';
 import List from '@material-ui/core/List';
 import { useDispatch } from 'react-redux';
+import {logoutRequest} from '../features/user/actions'
+import { useHistory } from 'react-router-dom';
+
 //import {logout} from '../features/user/usersSlice'
 
 export const mainListItems=(
@@ -48,22 +51,22 @@ export const mainListItems=(
   </div>
 )
 
-
-
 export const SecondaryListItems: React.FC = ()=> {
+  function doLogout(){
+    dispatch(logoutRequest());
+    history.go(0);
+  }
   const dispatch=useDispatch();
+  const history= useHistory();
   return (
-    <React.Fragment>
-    <List id='hatest'>
+    <List>
       <ListSubheader inset>System</ListSubheader>
-      {/* <ListItem button onClick={()=>{dispatch(logout())}}> */}
-      <ListItem button >
+      <ListItem button onClick={()=> {doLogout()}}>
         <ListItemIcon>
           <Eject />
         </ListItemIcon>
         <ListItemText primary="Log out" />
       </ListItem>
       </List>
-      </React.Fragment>
   );
 };

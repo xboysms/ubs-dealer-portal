@@ -10,8 +10,9 @@ import {useState} from 'react'
 import { Redirect, useHistory } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
 import { connect } from 'react-redux';
-import loginRequest from '../features/user/actions'
+import {loginRequest} from '../features/user/actions'
 import { RootState } from '../app/rootReducer';
+import { CircularProgress, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 const LoginView = ({userData}:any) =>{
     const [username,setUserName]= useState('');
     const [password,setPassword]= useState('');
-    const [isLoading,setIsLoading]= useState(false);
+    const {requesting,user,successful,errors,messages}= userData;
     const classes = useStyles();
     const history= useHistory();
     const dispatch=useDispatch();
@@ -37,58 +38,57 @@ const LoginView = ({userData}:any) =>{
         return <Redirect to="/" />;
       }
     return (
-    <form className={classes.form} noValidate>
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          id="username"
-          label="User Name"
-          name="username"
-          autoComplete="username"
-          autoFocus
-          onChange={(e)=>setUserName(e.target.value)}
-        />
-        <TextField
-          variant="outlined"
-          margin="normal"
-          required
-          fullWidth
-          name="password"
-          label="Password"
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          onChange={(e)=>setPassword(e.target.value)}
-        />
-        <FormControlLabel
-          control={<Checkbox value="remember" color="primary" />}
-          label="Remember me"
-        />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          className={classes.submit}
-          onClick={doLogin}
-        >
-          Sign In
-        </Button>
-        <Grid container>
-          <Grid item xs>
-            <Link href="#" variant="body2">
-              Forgot password?
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link href="#" variant="body2">
-              {"Don't have an account? Sign Up"}
-            </Link>
-          </Grid>
-        </Grid>
-      </form>
+        <React.Fragment>
+            {requesting ? (<CircularProgress />) : (<div></div>) }
+            <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="User Name"
+            name="username"
+            autoComplete="username"
+            autoFocus
+            onChange={(e)=>setUserName(e.target.value)}
+            />
+            <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={(e)=>setPassword(e.target.value)}
+            />
+            <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+            />
+            { errors && errors.length>0 ? (<Typography color='error'>{errors[0].message}</Typography>) : (<div></div>)}
+            <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={doLogin}>Sign In</Button>
+            <Grid container>
+            <Grid item xs>
+                <Link href="#" variant="body2">
+                Forgot password?
+                </Link>
+            </Grid>
+            <Grid item>
+                <Link href="#" variant="body2">
+                {"Don't have an account? Sign Up"}
+                </Link>
+            </Grid>
+            </Grid>
+        </React.Fragment>
     );
 }
 

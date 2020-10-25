@@ -7,10 +7,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
-import { useDispatch } from 'react-redux';
-import {generate} from '../features/token/tokenSlice'
-import { connect } from 'react-redux';
-//import { INCREMENT, DECREMENT, INCREMENT_ASYNC ,DECREMENT_ASYNC} from '../app/reducer';
 
 
 // Generate Order Data
@@ -32,14 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Orders=({
-  count,
-  onIncrementAsync,
-  onDecrementAsync,
-  onIncrement,
-  onDecrement,
-}: any) => {
-  const dispatch=useDispatch();
+const Orders:React.FC = () => {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -67,44 +56,14 @@ const Orders=({
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={()=>{dispatch(generate())}}>
-          See more orders {count}
+        <Link color="primary" href="#">
+          See more orders
         </Link>
-      </div>
-      <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={onIncrement}>
-          +
-        </Link>
-        
-      </div>
-      <div className={classes.seeMore}>
-      <Link color="primary" href="#" onClick={onDecrement}>
-          -
-        </Link>
-        
-      </div>
-      <div className={classes.seeMore}>
-      <Link color="primary" href="#" onClick={onIncrementAsync}>
-          + async
-        </Link>
-        
-      </div>
-      <div className={classes.seeMore}>
-      <Link color="primary" href="#" onClick={onDecrementAsync}>
-          - async
-        </Link>
-        
       </div>
     </React.Fragment>
   );
 }
 
-const action = (type: any) => () => ({ type });
-const OrdersSaga = connect((state) => ({ count: state }), {
-  // onIncrement: action(INCREMENT),
-  // onDecrement: action(DECREMENT),
-  // onIncrementAsync: action(INCREMENT_ASYNC),
-  // onDecrementAsync: action(DECREMENT_ASYNC),
-})(Orders);
 
-export default OrdersSaga;
+
+export default Orders;

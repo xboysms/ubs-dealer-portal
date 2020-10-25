@@ -1,8 +1,10 @@
 import {  
     LOGIN_REQUESTING,
+    LOGOUT_REQUESTING,
+    USER_REFRESH_BY_TOKEN
   } from './constants'
 
-  const loginRequest = ({username, password}:any) => {  
+  export const loginRequest = ({username, password}:any) => {  
       console.log(username);
       console.log(password);
     return {
@@ -10,5 +12,17 @@ import {
       username,password
     }
   }
+  export const logoutRequest = () => {  
+  return {
+    type: LOGOUT_REQUESTING
+  }  
+}
 
-  export default loginRequest  
+export const refreshUserByToken = ({token}:any) => {  
+    return {
+      type: USER_REFRESH_BY_TOKEN,
+      token
+    }  
+  }
+
+//   export default loginRequest  

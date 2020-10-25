@@ -1,5 +1,4 @@
 import Axios from 'axios'
-import { Action } from 'redux';
 import {call,takeEvery,put} from 'redux-saga/effects'
 import { 
     GET_AVAILABLE_VERSION_LIST
@@ -7,6 +6,7 @@ import {
 import {finish,loadFailed} from './versionSlice'
 
 const baseUrl="https://dealerportaldemo.azurewebsites.net/api/";
+//const baseUrl="http://dev.ultimate.net.au:60000/dealerportaldemo/api/";
 function* watchGetItems() {
     yield takeEvery(GET_AVAILABLE_VERSION_LIST, getAvalableVersions)
 }
@@ -23,12 +23,14 @@ function* getAvalableVersions() {
 }
 
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxMDAxIiwidXNlck5hbWUiOiJhZG1pbiIsIm5iZiI6MTYwMzU0MTYwNCwiZXhwIjoxNjAzNTcwNDA0LCJpYXQiOjE2MDM1NDE2MDR9.uDlU2wSjXbzcTLpCa-qZhq2qy3e-ANYIhRpEwzizG40";
+
 function getDataAsync(){
+    const token = localStorage.getItem("token");
+    console.log(token);
     return Axios({
         method:"GET",
         headers: {
-            'Authorization': 'Bearer ' +token
+            'Authorization': `Bearer ${token}` 
           },
         url: baseUrl+"versions"
     });
