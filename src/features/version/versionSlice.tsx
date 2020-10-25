@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const versionSlice = createSlice({
-  name: 'versionReducer',
+  name: 'version',
   initialState: {
       data:[],
       loading:false,

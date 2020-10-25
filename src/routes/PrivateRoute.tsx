@@ -8,9 +8,9 @@ const PrivateRoute: React.FC<{
         exact: boolean;
     }> = (props) => {
 
-    const user = useSelector(userData);
+    const user = useSelector(userData).user;
     console.log(user);
-    return  user && user.successful ? (<Route  path={props.path}  exact={props.exact} component={props.component} />) : 
+    return  user && user.Token ? (<Route  path={props.path}  exact={props.exact} component={props.component} />) : 
         (<Redirect  to="/login"  />);
 };
 export default PrivateRoute;

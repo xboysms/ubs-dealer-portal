@@ -30,8 +30,8 @@ const VersionView=({
   return (
     <React.Fragment>
       <Title>Available Versions</Title>
-      {versions.error??<div>Error</div>}
-{ versions.data.length===0 ? (<div>loading</div>):(
+      {versions.error ?? <div>Error</div>}
+        {versions.data.length===0 ? (<div>loading</div>):(
     <Table size="small">
     <TableHead>
       <TableRow>

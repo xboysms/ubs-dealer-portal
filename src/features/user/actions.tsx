@@ -3,10 +3,11 @@ import {
   } from './constants'
 
   const loginRequest = ({username, password}:any) => {  
+      console.log(username);
+      console.log(password);
     return {
       type: LOGIN_REQUESTING,
-      username,
-      password,
+      username,password
     }
   }
 
