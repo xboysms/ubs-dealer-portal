@@ -24,6 +24,9 @@ npm start
 npm test
 npm run build
 
+# Deploy
+[![Netlify Status](https://api.netlify.com/api/v1/badges/57655dd4-0adc-4d9b-8265-6bc93dab928f/deploy-status)](https://app.netlify.com/sites/dealerportal-demo/deploys)
+
 # Next Topic or questions
 1. multiple reducer or state: the use case should be to work with multiple objects. In this case, how to set that up?
 
