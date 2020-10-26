@@ -7,9 +7,10 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import { connect } from 'react-redux';
 import { RootState } from '../app/rootReducer';
-import { CircularProgress, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import {getAllProducts} from '../features/product/actions'
 import { useDispatch } from 'react-redux';
+import CustomLoading from './CustomLoading'
 
 
 export const ViewComponent:React.FC = ({
@@ -24,9 +25,8 @@ export const ViewComponent:React.FC = ({
   return (
     <React.Fragment>
       <Title>Current Available Apps</Title>
-  {error!=='' ? (<Typography color='error'>{error}</Typography>): (<div></div>)}
-      
-      {requesting ? (<CircularProgress />) : (
+      {error!=='' ? (<Typography color='error'>{error}</Typography>): (<div></div>)}
+      {requesting ? (<CustomLoading />) : (
         <Table size="small">
         <TableHead>
           <TableRow>

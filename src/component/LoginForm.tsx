@@ -10,7 +10,8 @@ import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import {loginRequest} from '../features/user/actions'
 import { RootState } from '../app/rootReducer';
-import { CircularProgress, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+import CustomLoading from './CustomLoading'
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -36,7 +37,7 @@ const LoginView = ({userData}:any) =>{
       }
     return (
         <React.Fragment>
-            {requesting ? (<CircularProgress />) : (<div></div>) }
+            {requesting ? (<CustomLoading isPrimary/>): (<div></div>) }
             <TextField
             variant="outlined"
             margin="normal"

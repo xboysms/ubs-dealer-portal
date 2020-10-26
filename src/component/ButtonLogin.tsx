@@ -25,8 +25,8 @@ const ButtonLogin: React.FC<ButtonProps> = ({
   return (
     <Button
     type="submit"
-            variant="contained"
-            color={isPrimary?"primary":"secondary"}
+    variant="contained"
+    color={isPrimary?"primary":"secondary"}
             
       {...props}>
       {label}
