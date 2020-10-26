@@ -1,4 +1,4 @@
-import React, { useEffect, version } from 'react';
+import React, { useEffect } from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -24,7 +24,7 @@ const VersionView=({
   const dispatch=useDispatch();
   useEffect(()=>{
       dispatch({type:GET_AVAILABLE_VERSION_LIST});
-  },[]);
+  },[dispatch]);
   const classes = useStyles();
   console.log(versions);
   return (

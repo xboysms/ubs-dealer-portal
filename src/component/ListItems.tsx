@@ -7,8 +7,6 @@ import Home from '@material-ui/icons/Home';
 import Receipt from '@material-ui/icons/Receipt';
 import DirectionsCar from '@material-ui/icons/DirectionsCar';
 import Apps from '@material-ui/icons/Apps';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
 import Eject from '@material-ui/icons/Eject';
 import List from '@material-ui/core/List';
 import { useDispatch } from 'react-redux';

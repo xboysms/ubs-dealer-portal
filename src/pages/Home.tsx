@@ -4,8 +4,7 @@ import {Badge, Container,
 } from '@material-ui/core'
 import React from 'react';
 import clsx from 'clsx';
-import { Route,Switch,useLocation } from 'react-router-dom';
-import routes from '../routes/routes'
+import { Route,Switch } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import MenuIcon from '@material-ui/icons/Menu';
 import Box from '@material-ui/core/Box';
@@ -14,7 +13,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import Typography from '@material-ui/core/Typography';
 import Copyright from '../component/Copyright';
 import { MainListItems,SecondaryListItems } from '../component/ListItems';
-import Orders from "../component/Orders";
 import DashboardPage from "../component/Dashboard";
 import StockList from "../component/StockList";
 import Deposits from "../component/Deposits";
@@ -128,8 +126,8 @@ import Deposits from "../component/Deposits";
     const handleDrawerClose = () => {
       setOpen(false);
     };
-    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-    const location = useLocation();
+    // const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+    //const location = useLocation();
     return (
       <div className={classes.root}>
         <CssBaseline />
