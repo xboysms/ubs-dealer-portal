@@ -1,5 +1,8 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This is a demo repository for developing a admin portal using React and Storybook.
+1. Link to React app: https://dealerportal-demo.netlify.app/
+Test login detail: admin/password
+2. Link to StoryBook app: https://dealerportal-sb-demo.netlify.app/
 
 # Getting Started
 All commands used so far:
