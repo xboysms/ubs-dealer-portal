@@ -16,6 +16,7 @@ export const ViewComponent:React.FC = ({
   appState
 }: any) => {
   const {requesting,data,error}= appState;
+  
   const dispatch= useDispatch()
   useEffect(()=>{
     dispatch(getAllProducts());
@@ -23,8 +24,9 @@ export const ViewComponent:React.FC = ({
   return (
     <React.Fragment>
       <Title>Current Available Apps</Title>
-      {error!='' ?? <Typography color='error'>{error}</Typography>}
-      {(requesting||data.length===0) ? (<CircularProgress />) : (
+  {error!=='' ? (<Typography color='error'>{error}</Typography>): (<div></div>)}
+      
+      {requesting ? (<CircularProgress />) : (
         <Table size="small">
         <TableHead>
           <TableRow>

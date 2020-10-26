@@ -50,7 +50,7 @@ Error.args = {
   appState:{
     data: [],
     requesting:false,
-    error:'Something wrong'
+    error:'Something is wrong'
   }
 };
 
