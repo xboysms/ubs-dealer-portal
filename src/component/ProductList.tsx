@@ -7,15 +7,16 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import { connect } from 'react-redux';
 import { RootState } from '../app/rootReducer';
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress, Typography } from '@material-ui/core';
 import {getAllProducts} from '../features/product/actions'
 import { useDispatch } from 'react-redux';
 
 
-const ViewComponent:React.FC = ({
+export const ViewComponent:React.FC = ({
   appState
 }: any) => {
-  const {requesting,data}= appState;
+  const {requesting,data,error}= appState;
+  
   const dispatch= useDispatch()
   useEffect(()=>{
     dispatch(getAllProducts());
@@ -23,7 +24,9 @@ const ViewComponent:React.FC = ({
   return (
     <React.Fragment>
       <Title>Current Available Apps</Title>
-      {(requesting||data.length===0) ? (<CircularProgress />) : (
+  {error!=='' ? (<Typography color='error'>{error}</Typography>): (<div></div>)}
+      
+      {requesting ? (<CircularProgress />) : (
         <Table size="small">
         <TableHead>
           <TableRow>
@@ -53,5 +56,4 @@ const ViewComponent:React.FC = ({
 
 const ProductList = connect((state:RootState) => ({ appState: state.products }), {
 })(ViewComponent);
-
 export default ProductList;
