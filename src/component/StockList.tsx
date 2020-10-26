@@ -7,9 +7,9 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 import { connect } from 'react-redux';
 import { RootState } from '../app/rootReducer';
-import { CircularProgress } from '@material-ui/core';
 import {getAllStocks} from '../features/stock/actions'
 import { useDispatch } from 'react-redux';
+import CustomLoading from './CustomLoading'
 
 
 const ViewComponent:React.FC = ({
@@ -23,7 +23,7 @@ const ViewComponent:React.FC = ({
   return (
     <React.Fragment>
       <Title>Online Stocks</Title>
-      {(requesting||data.length===0) ? (<CircularProgress />) : (
+      {(requesting||data.length===0) ? (<CustomLoading isPrimary/>) : (
         <Table size="small">
         <TableHead>
           <TableRow>
