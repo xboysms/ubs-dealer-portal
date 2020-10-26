@@ -8,6 +8,7 @@ import token  from '../features/token/tokenSlice';
 import user from '../features/user/usersSlice';
 import version from '../features/version/versionSlice';
 import stocks from '../features/stock/slice';
+import products from '../features/product/slice';
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
  */
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     token: token,
     user: user,
     version:version,
-    stocks:stocks
+    stocks:stocks,
+    products:products
   });
   export const userData = (state:RootState) => state.user;
   export type RootState = ReturnType<typeof rootReducer>

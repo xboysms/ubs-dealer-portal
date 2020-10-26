@@ -15,7 +15,7 @@ import Copyright from '../component/Copyright';
 import { MainListItems,SecondaryListItems } from '../component/ListItems';
 import DashboardPage from "../component/Dashboard";
 import StockList from "../component/StockList";
-import Deposits from "../component/Deposits";
+import ProductList from "../component/ProductList";
 
 // const switchRoutes = (
 //     <Switch>
@@ -119,7 +119,7 @@ import Deposits from "../component/Deposits";
   
   const Home:React.FC=()=>  {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
     const handleDrawerOpen = () => {
       setOpen(true);
     };
@@ -178,8 +178,8 @@ import Deposits from "../component/Deposits";
                 <Route path="/stocks">
                     <StockList />
                 </Route>
-                <Route path="/products">
-                    <Deposits />
+                <Route path="/apps">
+                    <ProductList />
                 </Route>
                 {/* <Redirect from="/" to="/dashboard" /> */}
             </Switch>
