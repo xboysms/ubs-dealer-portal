@@ -1,14 +1,13 @@
 
 
 import Axios from 'axios'
-import {call,takeEvery,put, delay} from 'redux-saga/effects'
+import {call,takeEvery,put} from 'redux-saga/effects'
 import {
     loggingIn,loggedInSuccess,
     loggedInFailed,loggedOutSuccess,
     setUserToken} from './usersSlice'
 import {LOGIN_REQUESTING,LOGOUT_REQUESTING,USER_REFRESH_BY_TOKEN} from './constants'
-
-const baseUrl="https://dealerportaldemo.azurewebsites.net/api/";
+import {BASE_URL} from '../../app/constants'
 
 function* watchGetItems() {
     yield takeEvery(LOGIN_REQUESTING, performLogin)
@@ -58,7 +57,7 @@ function getUserAsync(token:string){
         headers: {
             'Authorization': `Bearer ${token}` 
           },
-        url: baseUrl+"users"
+        url: BASE_URL+"users"
     });
 }
 
@@ -69,6 +68,6 @@ function getDataAsync(username:string,password:string){
             username:username,
             password:password
         },
-        url: baseUrl+"users"
+        url: BASE_URL+"users"
     });
 }

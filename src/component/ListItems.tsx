@@ -3,9 +3,10 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Home from '@material-ui/icons/Home';
+import Receipt from '@material-ui/icons/Receipt';
 import DirectionsCar from '@material-ui/icons/DirectionsCar';
+import Apps from '@material-ui/icons/Apps';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import Eject from '@material-ui/icons/Eject';
@@ -23,20 +24,24 @@ export const MainListItems:React.FC= ()=> {
   function goStocks(){
     history.push('/stocks')
   }
+  function goProducts(){
+    history.push('/apps')
+  }
+  
   const history= useHistory();
   return (
     <List>
         <ListItem button onClick={()=> {goDashBoard()}}>
           <ListItemIcon>
-            <DashboardIcon />
+            <Home />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={()=> {goProducts()}}>
           <ListItemIcon>
-            <ShoppingCartIcon />
+            <Apps />
           </ListItemIcon>
-          <ListItemText primary="Orders" />
+          <ListItemText primary="Applications" />
         </ListItem>
         <ListItem button onClick={()=> {goStocks()}}>
           <ListItemIcon>
@@ -46,16 +51,16 @@ export const MainListItems:React.FC= ()=> {
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <BarChartIcon />
+            <Receipt />
           </ListItemIcon>
           <ListItemText primary="Reports" />
         </ListItem>
-        <ListItem button>
+        {/* <ListItem button>
           <ListItemIcon>
             <LayersIcon />
           </ListItemIcon>
           <ListItemText primary="Integrations" />
-        </ListItem>
+        </ListItem> */}
       </List>
     );
 };

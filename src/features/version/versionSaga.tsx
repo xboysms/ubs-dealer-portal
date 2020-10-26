@@ -4,9 +4,9 @@ import {
     GET_AVAILABLE_VERSION_LIST
 } from './actions'
 import {finish,loadFailed} from './versionSlice'
+import {BASE_URL} from '../../app/constants'
 
-const baseUrl="https://dealerportaldemo.azurewebsites.net/api/";
-//const baseUrl="http://dev.ultimate.net.au:60000/dealerportaldemo/api/";
+
 function* watchGetItems() {
     yield takeEvery(GET_AVAILABLE_VERSION_LIST, getAvalableVersions)
 }
@@ -22,8 +22,6 @@ function* getAvalableVersions() {
     }
 }
 
-
-
 function getDataAsync(){
     const token = localStorage.getItem("token");
     console.log(token);
@@ -32,15 +30,9 @@ function getDataAsync(){
         headers: {
             'Authorization': `Bearer ${token}` 
           },
-        url: baseUrl+"versions"
+        url: BASE_URL+"versions"
     });
 }
-// function loginAsync(){
-//     return Axios({
-//         method:"POST",
-//         url: baseUrl+"users",
-//         data:
-//     });
-// }
+
 
 

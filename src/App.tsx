@@ -5,7 +5,7 @@ import './App.css';
 //import Login from './pages/Login';
 import Home from './pages/Home'
 import Login from './pages/Login'
-import {Router,Route,Switch, Redirect} from 'react-router-dom'
+import {Router,Route,Switch} from 'react-router-dom'
 import PrivateRoute from './routes/PrivateRoute'
 
 const hist = createBrowserHistory();
@@ -20,7 +20,7 @@ const App: React.FC = () => {
         {/* <Redirect from="*" to="/" /> */}
       </Switch>
         
-      </Router>
+    </Router>
   );
 };
 

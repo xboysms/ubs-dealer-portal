@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -7,8 +7,8 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import {useState} from 'react'
-import { Redirect, useHistory } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import {loginRequest} from '../features/user/actions'
 import { RootState } from '../app/rootReducer';
@@ -26,9 +26,8 @@ const useStyles = makeStyles((theme) => ({
 const LoginView = ({userData}:any) =>{
     const [username,setUserName]= useState('');
     const [password,setPassword]= useState('');
-    const {requesting,user,successful,errors,messages}= userData;
+    const {requesting,errors}= userData;
     const classes = useStyles();
-    const history= useHistory();
     const dispatch=useDispatch();
     function doLogin(){
         dispatch(loginRequest({username,password}));
@@ -76,7 +75,7 @@ const LoginView = ({userData}:any) =>{
             color="primary"
             className={classes.submit}
             onClick={doLogin}>Sign In</Button>
-            <Grid container>
+            {/* <Grid container>
             <Grid item xs>
                 <Link href="#" variant="body2">
                 Forgot password?
@@ -87,7 +86,7 @@ const LoginView = ({userData}:any) =>{
                 {"Don't have an account? Sign Up"}
                 </Link>
             </Grid>
-            </Grid>
+            </Grid> */}
         </React.Fragment>
     );
 }

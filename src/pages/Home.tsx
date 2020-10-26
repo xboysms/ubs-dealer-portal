@@ -4,7 +4,7 @@ import {Badge, Container,
 } from '@material-ui/core'
 import React from 'react';
 import clsx from 'clsx';
-import { Redirect, Route,Switch } from 'react-router-dom';
+import { Route,Switch,useLocation } from 'react-router-dom';
 import routes from '../routes/routes'
 import AppBar from '@material-ui/core/AppBar';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -16,25 +16,26 @@ import Copyright from '../component/Copyright';
 import { MainListItems,SecondaryListItems } from '../component/ListItems';
 import Orders from "../component/Orders";
 import DashboardPage from "../component/Dashboard";
-import VersionList from "../component/VersionList";
+import StockList from "../component/StockList";
 import Deposits from "../component/Deposits";
-const switchRoutes = (
-    <Switch>
-      {/* <Route exact path="/stocks/:id" component={EditStock} /> */}
-      {routes.map((prop, key) => {
-          console.log(prop.path);
-          return (
-            <Route
-              exact
-              path={prop.path}
-              component={prop.component}
-              key={key}
-            />
-          );
-      })}
-      {/* <Redirect from="/" to="/dashboard" /> */}
-    </Switch>
-  );
+
+// const switchRoutes = (
+//     <Switch>
+//       {/* <Route exact path="/stocks/:id" component={EditStock} /> */}
+//       {routes.map((prop, key) => {
+//           console.log(prop.path);
+//           return (
+//             <Route
+//               exact
+//               path={prop.path}
+//               component={prop.component}
+//               key={key}
+//             />
+//           );
+//       })}
+//       {/* <Redirect from="/" to="/dashboard" /> */}
+//     </Switch>
+//   );
 
 
   const drawerWidth = 240;
@@ -128,7 +129,7 @@ const switchRoutes = (
       setOpen(false);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-  
+    const location = useLocation();
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -139,12 +140,11 @@ const switchRoutes = (
               color="inherit"
               aria-label="open drawer"
               onClick={handleDrawerOpen}
-              className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-            >
+              className={clsx(classes.menuButton, open && classes.menuButtonHidden)}>
               <MenuIcon />
             </IconButton>
             <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-              Dashboard
+              UBS Dealer Portal
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
@@ -178,7 +178,7 @@ const switchRoutes = (
                     <DashboardPage />
                 </Route>
                 <Route path="/stocks">
-                    <Orders />
+                    <StockList />
                 </Route>
                 <Route path="/products">
                     <Deposits />
