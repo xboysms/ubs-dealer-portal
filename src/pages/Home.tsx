@@ -184,9 +184,9 @@ import ProductList from "../component/ProductList";
                 {/* <Redirect from="/" to="/dashboard" /> */}
             </Switch>
             <Box pt={4}>
-            <Copyright companyLink="http://ultimate.net.au/" 
-          companyName="Ultimate Business Systems Ltd Pty"
-          copyrightYear={new Date().getFullYear()} />
+            <Copyright companyLink="https://github.com/virgolee2209/ubs-dealer-portal/" 
+          companyName="Duy Ha Le"
+          copyrightYear ={new Date().getFullYear()} />
             </Box>
           </Container>
         </main>

@@ -5,8 +5,8 @@ import React from 'react';
 //import {token} from '../features/token/tokenSlice'
 
 const Copyright: React.FC<FooterData> = ({
-  companyName = 'Ultimate Business Systems Ltd Pty',
-  companyLink = 'http://ultimate.net.au',
+  companyName = 'Duy Ha Le',
+  companyLink = 'https://github.com/virgolee2209/ubs-dealer-portal/',
   copyrightYear=new Date().getFullYear(),
   ...props
 }) => {
