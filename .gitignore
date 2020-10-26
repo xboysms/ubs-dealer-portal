@@ -40,6 +40,9 @@ build/Release
 # Compiled build
 build
 
+# Compiled sb build
+storybook-static
+
 # Dependency directories
 node_modules/
 jspm_packages/
