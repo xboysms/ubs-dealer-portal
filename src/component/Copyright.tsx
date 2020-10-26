@@ -4,18 +4,37 @@ import React from 'react';
 //import { useSelector } from 'react-redux'
 //import {token} from '../features/token/tokenSlice'
 
-const Copyright: React.FC = ()=> {
-  // const currentToken= useSelector(token);
+const Copyright: React.FC<FooterData> = ({
+  companyName = 'Ultimate Business Systems Ltd Pty',
+  companyLink = 'http://ultimate.net.au',
+  copyrightYear=new Date().getFullYear(),
+  ...props
+}) => {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
-        <Link color="inherit" href="http://ultimate.net.au/">
-          Ultimate Business Systems 
+        <Link color="inherit" href={companyLink}>
+          {companyName}
         </Link>{' '}
         {/* {currentToken} */}
-        {new Date().getFullYear()}
+        {copyrightYear}
         {'.'}
       </Typography>
     );
   }
   export default Copyright;
+
+export interface FooterData {
+  /**
+   * Name of the company
+   */
+  companyName: string;
+  /**
+   * Link to the homepage of the company
+   */
+  companyLink: string;
+  /**
+   * year number next to copy right character
+   */
+  copyrightYear:number;
+}

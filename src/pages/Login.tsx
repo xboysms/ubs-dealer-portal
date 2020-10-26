@@ -36,7 +36,9 @@ const Login: React.FC = () => {
           <LoginForm></LoginForm>
         </div>
         <Box mt={8}>
-          <Copyright />
+          <Copyright companyLink="http://ultimate.net.au/" 
+          companyName="Ultimate Business Systems Ltd Pty"
+          copyrightYear ={new Date().getFullYear()} />
         </Box>
       </Container>
     );

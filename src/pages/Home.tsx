@@ -184,7 +184,9 @@ import Deposits from "../component/Deposits";
                 {/* <Redirect from="/" to="/dashboard" /> */}
             </Switch>
             <Box pt={4}>
-              <Copyright />
+            <Copyright companyLink="http://ultimate.net.au/" 
+          companyName="Ultimate Business Systems Ltd Pty"
+          copyrightYear={new Date().getFullYear()} />
             </Box>
           </Container>
         </main>

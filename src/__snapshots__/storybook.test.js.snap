@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Footer Date 2022 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+>
+  Copyright © 
+  <a
+    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+    href="http://ultimate.net.au"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    Ultimate Business Systems Ltd Pty
+  </a>
+   
+  2022
+  .
+</p>
+`;
+
+exports[`Storyshots Footer Default 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+>
+  Copyright © 
+  <a
+    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+    href="http://ultimate.net.au"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    Ultimate Business Systems Ltd Pty
+  </a>
+   
+  2020
+  .
+</p>
+`;
+
+exports[`Storyshots Footer Link To Google 1`] = `
+<p
+  className="MuiTypography-root MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+>
+  Copyright © 
+  <a
+    className="MuiTypography-root MuiLink-root MuiLink-underlineHover MuiTypography-colorInherit"
+    href="http://google.com"
+    onBlur={[Function]}
+    onFocus={[Function]}
+  >
+    Ultimate Business Systems Ltd Pty
+  </a>
+   
+  2020
+  .
+</p>
+`;
