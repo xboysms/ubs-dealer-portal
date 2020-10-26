@@ -24,19 +24,11 @@ npm start
 npm test
 npm run build
 
-# Deploy
+# Deploy React App
 [![Netlify Status](https://api.netlify.com/api/v1/badges/57655dd4-0adc-4d9b-8265-6bc93dab928f/deploy-status)](https://app.netlify.com/sites/dealerportal-demo/deploys)
 
-# Next Topic or questions
-1. multiple reducer or state: the use case should be to work with multiple objects. In this case, how to set that up?
+# Deploy Storybook
+[![Netlify Status](https://api.netlify.com/api/v1/badges/01f71742-8013-49cf-84a1-6735ef6e0e40/deploy-status)](https://app.netlify.com/sites/dealerportal-sb-demo/deploys)
 
 
-# Saga effect
-1. Fork:  performs a non-blocking operation on the function passed.
-1. Take:  pauses until action received.
-1. Race:  runs effects simultaneously, then cancels them all once one finishes.
-1. Call:  runs a function. If it returns a promise, pauses the saga until the promise is resolved.
-1. Put:  dispatches an action.
-1. Select:  Runs a selector function to get data from the state
-1. takeLatest:  means we are going to execute the operations, then return only the results of the last one call. If we trigger several cases, it’s going to ignore all of them except the last one.
-1. takeEvery:  will return results for all the calls triggered.
+
