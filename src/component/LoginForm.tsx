@@ -22,7 +22,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-const LoginView = ({userData}:any) =>{
+
+
+
+export const LoginView = ({userData}:any) =>{
     const [username,setUserName]= useState('');
     const [password,setPassword]= useState('');
     const {requesting,errors}= userData;
@@ -32,7 +35,7 @@ const LoginView = ({userData}:any) =>{
         dispatch(loginRequest({username,password}));
     }
     console.log("userdata",userData);
-    if (userData.user.Token) {
+    if (userData.user && userData.user.Token) {
         return <Redirect to="/" />;
       }
     return (
@@ -66,12 +69,13 @@ const LoginView = ({userData}:any) =>{
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
             />
-            { errors && errors.length>0 ? (<Typography color='error'>{errors[0].message}</Typography>) : (<div></div>)}
+            { (errors && errors.length>0) ? (<Typography color='error'>{errors[0].message}</Typography>) : (<div></div>)}
             <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
+            disabled={requesting}
             className={classes.submit}
             onClick={doLogin}>Sign In</Button>
             {/* <Grid container>
