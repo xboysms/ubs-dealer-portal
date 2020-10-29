@@ -41,3 +41,10 @@ const LeftMenuItem: React.FC<LeftMenuItemProps> = ({
     );
   };
   export default LeftMenuItem;
+
+  interface testType {
+    prop1:string;
+    readonly prop2:number;
+    optionalProp3?: boolean;
+    
+  }

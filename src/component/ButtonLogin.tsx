@@ -11,6 +11,7 @@ export interface ButtonProps {
    * Optional click handler
    */
   isPrimary:boolean;
+  isFullWidth:boolean;
   onClick?: () => void;
 }
 
@@ -20,6 +21,7 @@ export interface ButtonProps {
 const ButtonLogin: React.FC<ButtonProps> = ({
   label='Login',
   isPrimary=true,
+  isFullWidth=true,
   ...props
 }) => {
   return (
@@ -27,7 +29,7 @@ const ButtonLogin: React.FC<ButtonProps> = ({
     type="submit"
     variant="contained"
     color={isPrimary?"primary":"secondary"}
-            
+    fullWidth= {isFullWidth}
       {...props}>
       {label}
       </Button>
