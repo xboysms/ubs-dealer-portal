@@ -13,8 +13,22 @@ export const Default= Template.bind({});
 Default.args = {
   };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const DefaultSmall= Template.bind({});
+DefaultSmall.args = {
     ...Default.args,
+    isFullWidth:false
+  };
+
+export const SecondaryFullWidth = Template.bind({});
+SecondaryFullWidth.args = {
+    ...Default.args,
+    isFullWidth:true,
+    isPrimary:false
+};
+
+export const SecondarySmall = Template.bind({});
+SecondarySmall.args = {
+    ...Default.args,
+    isFullWidth:false,
     isPrimary:false
 };

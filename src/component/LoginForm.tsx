@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef, FormEvent } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 import {loginRequest} from '../features/user/actions'
 import { RootState } from '../app/rootReducer';
 import { Typography } from '@material-ui/core';
-import CustomLoading from './CustomLoading'
+import CustomLoading from './CustomLoading';
+import ButtonLogin from './ButtonLogin';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -26,12 +27,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 export const LoginView = ({userData}:any) =>{
-    const [username,setUserName]= useState('');
-    const [password,setPassword]= useState('');
     const {requesting,errors}= userData;
     const classes = useStyles();
     const dispatch=useDispatch();
-    function doLogin(){
+    const [username, setUserName]=useState('');
+    const [password, setPassword]=useState('');
+    function doLogin(e:FormEvent<HTMLFormElement>){
+      e.preventDefault();
         dispatch(loginRequest({username,password}));
     }
     console.log("userdata",userData);
@@ -39,7 +41,7 @@ export const LoginView = ({userData}:any) =>{
         return <Redirect to="/" />;
       }
     return (
-        <React.Fragment>
+        <form onSubmit={doLogin}>
             {requesting ? (<CustomLoading isPrimary/>): (<div></div>) }
             <TextField
             variant="outlined"
@@ -70,14 +72,8 @@ export const LoginView = ({userData}:any) =>{
             label="Remember me"
             />
             { (errors && errors.length>0) ? (<Typography color='error'>{errors[0].message}</Typography>) : (<div></div>)}
-            <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            disabled={requesting}
-            className={classes.submit}
-            onClick={doLogin}>Sign In</Button>
+            
+            <ButtonLogin isFullWidth isPrimary label="Sign In" ></ButtonLogin>
             {/* <Grid container>
             <Grid item xs>
                 <Link href="#" variant="body2">
@@ -90,10 +86,11 @@ export const LoginView = ({userData}:any) =>{
                 </Link>
             </Grid>
             </Grid> */}
-        </React.Fragment>
+        </form>
     );
 }
 
 const LoginForm = connect((state:RootState) => ({ userData: state.user }), {
 })(LoginView);
 export default LoginForm;
+
