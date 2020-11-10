@@ -16,7 +16,7 @@ function sum(a, b) {
     const [name, setName] = useState('Jim');
   
     const result = useCallback(sum(val1, val2), [val1, val2]);
-    const sinOfC = useMemo(() => Math.sin(c) , [c])
+    const sinOfC = useMemo(() => test(c) , [c])
     return (
       <div className="App">
         <input
@@ -45,6 +45,34 @@ function sum(a, b) {
       </div>
     );
   }
+
+
+
+  // function setup() {
+  //   var els = document.getElementsByClassName("remove");
+  //     for (var i = 0; i < els.length; i++) {
+  //         els[i].addEventListener('click', function (e) {
+  //             e.preventDefault();
+  //             e.target.closest('div.image').remove();
+  //         });
+  //     }
+  // }
+  
+  // // Example case. 
+  // document.body.innerHTML = `
+  // <div class="image">
+  //   <img src="https://goo.gl/kjzfbE" alt="First">
+  //   <button class="remove">X</button>
+  // </div>
+  // <div class="image">
+  //   <img src="https://goo.gl/d2JncW" alt="Second">
+  //   <button class="remove">X</button>
+  // </div>`;
+  
+  // setup();
+  
+  // document.getElementsByClassName("remove")[0].click();
+  // console.log(document.body.innerHTML);
 
 
 
