@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import {Router,Route,Switch} from 'react-router-dom'
 import PrivateRoute from './routes/PrivateRoute'
 import PlayGround from './pages/PlayGround'
+import Learn from './pages/Learn'
 
 const hist = createBrowserHistory();
 const App: React.FC = () => {
@@ -16,6 +17,7 @@ const App: React.FC = () => {
       <Switch>
         <Route path="/login" component={Login}/>
         <Route path="/test" component={PlayGround}/>
+        <Route path="/learn" component={Learn}/>
         <PrivateRoute path="/" component={Home}/>
         {/* <Route path="/" component={Home} exact/> */}
         

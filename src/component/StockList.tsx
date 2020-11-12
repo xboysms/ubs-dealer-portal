@@ -55,3 +55,4 @@ const StockList = connect((state:RootState) => ({ appState: state.stocks }), {
 })(ViewComponent);
 
 export default StockList;
+

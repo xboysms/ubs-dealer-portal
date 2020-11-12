@@ -46,5 +46,6 @@ const LeftMenuItem: React.FC<LeftMenuItemProps> = ({
     prop1:string;
     readonly prop2:number;
     optionalProp3?: boolean;
-    
+    [propsName:string]:any;
+    (name:string,password:string):void
   }
