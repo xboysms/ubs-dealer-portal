@@ -1,5 +1,5 @@
 {
     "appService.showBuildDuringDeployPrompt": false,
-    "appService.defaultWebAppToDeploy": "/subscriptions/c4b6f5a7-e765-4962-853c-bfc6cb21da1c/resourceGroups/EMMDemo/providers/Microsoft.Web/sites/EclipsePortalDemo",
-    "appService.deploySubpath": "build"
+    "appService.deploySubpath": "build",
+    "appService.defaultWebAppToDeploy": "/subscriptions/c4b6f5a7-e765-4962-853c-bfc6cb21da1c/resourceGroups/DealerPortalDemo/providers/Microsoft.Web/sites/DealerPortalReact"
 }
